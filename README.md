@@ -10,6 +10,39 @@
 
 Kimi Code CLI is an AI agent that runs in the terminal, helping you complete software development tasks and terminal operations. It can read and edit code, execute shell commands, search and fetch web pages, and autonomously plan and adjust actions during execution.
 
+## NVIDIA API Support
+
+This fork adds support for using Kimi K2.5 model via NVIDIA's API endpoint.
+
+### Setup
+
+1. Get your API key from [NVIDIA Build](https://build.nvidia.com/)
+
+2. Login with your NVIDIA API key:
+```bash
+kimi nvidia login
+```
+
+3. Start using Kimi with NVIDIA:
+```bash
+kimi --model nvidia/kimi-k2.5
+```
+
+### NVIDIA Commands
+
+| Command | Description |
+|---------|-------------|
+| `kimi nvidia login` | Configure NVIDIA API key |
+| `kimi nvidia logout` | Remove NVIDIA configuration |
+| `kimi nvidia status` | Check current configuration |
+
+### Features
+
+- 256K context window
+- Thinking mode (reasoning) support
+- Image and video input support
+- Tool calling (file operations, shell commands, etc.)
+
 ## Getting Started
 
 See [Getting Started](https://moonshotai.github.io/kimi-cli/en/guides/getting-started.html) for how to install and start using Kimi Code CLI.
