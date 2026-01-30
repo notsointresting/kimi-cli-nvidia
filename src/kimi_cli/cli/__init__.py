@@ -11,6 +11,7 @@ import typer
 from kimi_cli.constant import VERSION
 
 from .info import cli as info_cli
+from .nvidia import cli as nvidia_cli
 from .mcp import cli as mcp_cli
 from .web import cli as web_cli
 
@@ -677,6 +678,7 @@ def web_worker(session_id: str) -> None:
 
 cli.add_typer(mcp_cli, name="mcp")
 cli.add_typer(web_cli, name="web")
+cli.add_typer(nvidia_cli, name="nvidia")
 
 
 if __name__ == "__main__":

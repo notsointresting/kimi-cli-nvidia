@@ -17,6 +17,7 @@ if TYPE_CHECKING:
 
 type ProviderType = Literal[
     "kimi",
+    "nvidia",
     "openai_legacy",
     "openai_responses",
     "anthropic",
@@ -145,6 +146,19 @@ def create_llm(
 
             if gen_kwargs:
                 chat_provider = chat_provider.with_generation_kwargs(**gen_kwargs)
+        case "nvidia":
+            # NVIDIA API serving Kimi K2.5 model via OpenAI-compatible interface
+            # Uses reasoning_content field for thinking output
+            # Streaming disabled to avoid tool call argument parsing issues
+            from kosong.contrib.chat_provider.openai_legacy import OpenAILegacy
+
+            chat_provider = OpenAILegacy(
+                model=model.model,
+                base_url=provider.base_url,
+                api_key=resolved_api_key,
+                reasoning_key="reasoning_content",
+                stream=False,
+            )
         case "openai_legacy":
             from kosong.contrib.chat_provider.openai_legacy import OpenAILegacy
 

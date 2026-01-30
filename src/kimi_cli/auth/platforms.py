@@ -75,6 +75,12 @@ PLATFORMS: list[Platform] = [
         base_url="https://api.moonshot.ai/v1",
         allowed_prefixes=["kimi-k"],
     ),
+    Platform(
+        id="nvidia",
+        name="NVIDIA API (Kimi K2.5)",
+        base_url="https://integrate.api.nvidia.com/v1",
+        allowed_prefixes=["moonshotai/kimi-k"],
+    ),
 ]
 
 _PLATFORM_BY_ID = {platform.id: platform for platform in PLATFORMS}
